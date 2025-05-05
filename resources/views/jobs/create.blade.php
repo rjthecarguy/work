@@ -6,8 +6,20 @@
 
     <form method="POST" action="/jobs">
         @csrf
-        <input type="text" name="name" placeholder="Name"/>
-        <input type ="text" name="desc" placeholder="Description"/>
-        <button type="submit">Submit</button>
+
+        <div class="mb-2">
+            <input type="text" name="title" placeholder="Title" value="{{old('title')}}"/>
+                @error('title')
+                    <div class="text-red-600 mt-2 text-sm">{{$message}}</div>
+                @enderror
+        </div>
+
+        <div class="mb-2">
+            <input type ="text" name="description" placeholder="Description" value="{{old('description')}}"/>
+                @error('description')
+                    <div class="text-red-600 mt-2 text-sm">{{$message}}</div>
+                @enderror
+        </div>
+            <button type="submit">Submit</button>
     </form>
 </x-layout>

@@ -2,7 +2,7 @@
 
     <x-slot name="title">Available Jobs</x-slot>
 
-    <h1 class="text-blue-500">Available Jobs</h1>
+    <h1 class="text-blue-500 text-2xl font-bold mb-4">Available Jobs</h1>
 
     <ul>
         @forelse($jobs as $job)
