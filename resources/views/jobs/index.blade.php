@@ -5,8 +5,14 @@
     <h1 class="text-blue-500">Available Jobs</h1>
 
     <ul>
-        @foreach($jobs as $job)
-            <li>{{$job}}</l1>
-        @endforeach
+        @forelse($jobs as $job)
+
+            
+            <li><a href="{{route('jobs.show', $job->id)}}">{{$job->title}} - {{$job->description}}</a></l1>
+            @empty
+            <h1 class="text-black">No Jobs Available</h1>
+        @endforelse
+
+        
     </ul>
 </x-layout>
