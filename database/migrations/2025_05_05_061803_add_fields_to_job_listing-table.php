@@ -16,9 +16,11 @@ return new class extends Migration
 
         Schema::table('job_listings', function (Blueprint $table) {
             
+            $table->unsignedBigInteger('user_id')->after('id');
+
             $table->integer('salary');
             $table->string('tags')->nullable();
-            $table->enum('job-type'['Full-time', 'Part-time', 'Contract', 'Temporary', 'Volunteer',
+            $table->enum('job_type',['Full-time', 'Part-time', 'Contract', 'Temporary', 'Volunteer',
         'Internship', 'On-call'])->default('Full-time');
             $table->boolean('remote')->default(false);
             $table->text('requirements')->nullable();
@@ -32,6 +34,8 @@ return new class extends Migration
             $table->string('company_description')->nullable();
             $table->string('company_logo')->nullable();
             $table->string('company_website')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -41,8 +45,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('job_listings', function (Blueprint $table) {
-            
-            $table->dropColumn(['salary','tags','job-type','remote','requirements',
+
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+
+            $table->dropColumn(['salary','tags','job_type','remote','requirements',
             'benefits','city','state','zipcode','contact_email','contact_phone',
             'company_name','company_description', 'company_logo','company_website']);
         });
