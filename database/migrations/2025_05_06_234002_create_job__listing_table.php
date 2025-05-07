@@ -23,8 +23,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('salary');
             $table->string('tags')->nullable();
-            $table->enum('job_type',['Full-time', 'Part-time', 'Contract', 'Temporary', 'Volunteer',
-            'Internship', 'On-call'])->default('Full-time');
+            $table->enum('job_type',['Full-Time', 'Part-Time', 'Contract', 'Temporary', 'Volunteer',
+            'Internship', 'On-Call'])->default('Full-Time');
             $table->boolean('remote')->default(false);
             $table->text('requirements')->nullable();
             $table->string('benefits')->nullable();
