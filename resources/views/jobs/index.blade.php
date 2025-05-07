@@ -8,7 +8,7 @@
         @forelse($jobs as $job)
 
             
-            <li><a href="{{route('jobs.show', $job->id)}}">{{$job->title}} - {{$job->description}}</a></l1>
+            <li><a href="{{route('jobs.show', $job)}}">{{$job->title}} - {{$job->description}}</a></l1>
             @empty
             <h1 class="text-black">No Jobs Available</h1>
         @endforelse
