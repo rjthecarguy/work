@@ -4,14 +4,14 @@
 
    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">   
       @forelse($jobs as $job)
-
             
           <x-job-card :job="$job"/>
 
           @empty
           <p class="text-black">No Jobs Available</p>
       @endforelse
-          </div>
+      
+   </div>
 
       <a class="block text-xl text-center" href="{{route('jobs.index')}}">
          <i class="fa fa-arrow-alt-circle-right"></i> Show All Jobs
