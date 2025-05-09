@@ -52,7 +52,8 @@
                         'Part-Time' => 'Part_time', 'Contract' => 'Contract', 'Temporary'=>'Temporary',
                         'Internship'=>'Internship', 'Volunteer'=>'Volunteer', 'On-Call'=>'On-Call']"/>
 
-<x-inputs.select id='remote' name='remote' label="Remote" :options="[0 => 'No', 1 =>'Yes']"/>
+                    <x-inputs.select id='remote' name='remote' label="Remote"
+                     :options="[0 => 'No', 1 =>'Yes']"/>
 
                 
                     <x-inputs.text id='address' name='address' label='Address'
@@ -101,17 +102,7 @@
                     <x-inputs.text id='contact_email' name='contact_email' label='Contact Email'
                     placeholder='Enter Contact Email' type='email'/>
 
-                    <div class="mb-4">
-                        <label class="block text-gray-700 @error('company_logo') border-red-500 @enderror" for="company_logo"
-                            >Company Logo</label
-                        >
-                        <input
-                            id="company_logo"
-                            type="file"
-                            name="company_logo"
-                            class="w-full px-4 py-2 border rounded focus:outline-none"
-                        />
-                    </div>
+                    <x-inputs.file id="company_logo" name="company_logo" label="Company Logo"/>
 
                     <button
                         type="submit"
