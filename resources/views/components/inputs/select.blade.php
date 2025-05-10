@@ -16,13 +16,13 @@
         @error($name) border-red-500 @enderror"
     >
         @foreach($options as $optionValue => $optionLabel)
-        <option value="$optionValue" {{old($name, $value) == '$optionValue' ? 'selected' : ''}}>
+        <option value='{{$optionValue}}' {{old($name, $value) == '$optionValue' ? 'selected' : ''}}>
           {{$optionLabel}}
         </option>
         @endforeach
       
     </select>
     @error($name)
-        <p class="text-red-500 text-sm mt-1">{{@message}}</p>
+        <p class="text-red-500 text-sm mt-1">{{$message}}</p>
     @enderror
 </div>

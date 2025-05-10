@@ -30,20 +30,35 @@ class JobController extends Controller
      */
     public function store(Request $request):RedirectResponse
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
+    
 
         $validatedData = $request->validate([
-            'title'=> 'required|string|max:40',
-            'description'=> 'required|string'
+            'title'=> 'required|string',
+            'description'=> 'nullable|string',
+            'salary'=> 'required|integer',
+            'tags'=> 'nullable|string',
+            'job_type'=> 'nullable|string',
+            'remote'=> 'nullable|string',
+            'requirements'=> 'nullable|string',
+            'benefits'=> 'nullable|string',
+            'address'=> 'nullable|string',
+            'city'=> 'required|string',
+            'state'=> 'required|string',
+            'zipcode'=> 'nullable|string',
+            'contact_email'=> 'required|string',
+            'contact_phone'=> 'nullable|string',
+            'company_name'=> 'required|string',
+            'company_description'=> 'nullable|string',
+            'company_logo'=> 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'company_website'=> 'nullable|string'
         ]);
 
-      //  Job::create([
-      //      'title' => $validatedData['title'],
-      //      'description' => $validatedData['description']
-      //  ]);
 
-        return redirect()->route('jobs.index');
+        $validatedData['user_id'] = 1;
+
+        Job::create($validatedData);
+
+        return redirect()->route('jobs.index')->with('success', "Job listing created successfully!");
     }
 
     /**

@@ -28,7 +28,7 @@
 
 
 
-                 <x-inputs.text-area id="description" name="description" label="Description" placeholder="Systems programmer"/>
+              <!--   <x-inputs.text-area id="description" name="description" label="Description" placeholder="Systems programmer"/> -->
 
                     <x-inputs.text id='salary' name='salary' label='Salary'
                         placeholder='90000' type='number'/>
@@ -47,13 +47,13 @@
 
                   
 
-                    <x-inputs.select id='job_type' name='job_type' label="Job Type"
+                   <x-inputs.select id='job_type' name='job_type' label="Job Type"
                         value="{{old('job_type')}}"  :options="['Full-Time'=> 'Full-Time',
                         'Part-Time' => 'Part_time', 'Contract' => 'Contract', 'Temporary'=>'Temporary',
                         'Internship'=>'Internship', 'Volunteer'=>'Volunteer', 'On-Call'=>'On-Call']"/>
 
                     <x-inputs.select id='remote' name='remote' label="Remote"
-                     :options="[0 => 'No', 1 =>'Yes']"/>
+                     :options="['0' => 'No', '1' =>'Yes']"/> 
 
                 
                     <x-inputs.text id='address' name='address' label='Address'
@@ -66,7 +66,7 @@
 
                     
 
-                    <x-inputs.text id='state' name='State' label='State'
+                    <x-inputs.text id='state' name='state' label='State'
                     placeholder='NY'/>
 
 
