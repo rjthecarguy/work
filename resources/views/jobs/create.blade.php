@@ -28,7 +28,7 @@
 
 
 
-              <!--   <x-inputs.text-area id="description" name="description" label="Description" placeholder="Systems programmer"/> -->
+                <x-inputs.text-area id="description" name="description" label="Description" placeholder="Systems programmer"/> 
 
                     <x-inputs.text id='salary' name='salary' label='Salary'
                         placeholder='90000' type='number'/>

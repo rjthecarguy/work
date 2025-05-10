@@ -51,10 +51,13 @@ class JobController extends Controller
             'company_description'=> 'nullable|string',
             'company_logo'=> 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
             'company_website'=> 'nullable|string'
+           
         ]);
 
 
         $validatedData['user_id'] = 1;
+      
+
 
         Job::create($validatedData);
 
