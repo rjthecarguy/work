@@ -1,4 +1,4 @@
-<header class="bg-blue-900 text-white p-4">
+<header class="bg-blue-900 text-white p-4" x-data="{open:false}">
    <div class="container mx-auto flex justify-between items-center">
        <h1 class="text-3xl font-semibold">
            <a href="{{url('/')}}">Workopia</a>
@@ -18,6 +18,7 @@
       
        </nav>
        <button
+            @click="open=!open"
            id="hamburger"
            class="text-white md:hidden flex items-center"
        >
@@ -26,8 +27,10 @@
    </div>
    <!-- Mobile Menu -->
    <nav
+        @click.away="open=false"
+        x-show="open"
        id="mobile-menu"
-       class="hidden md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
+       class="md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
    >
    <x-nav-link url='/jobs' :mobile="true" :active="request()->is('jobs')">All Jobs</x-nav-link>
    <x-nav-link url='/jobs/saved' :mobile="true" :active="request()->is('jobs/saved') ">Saved Jobs</x-nav-link>
