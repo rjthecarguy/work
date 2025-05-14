@@ -109,7 +109,7 @@
 
             @if($job->company_logo)
                     <img
-                        src="/images/{{$job->company_logo}}"
+                        src="/storage/{{$job->company_logo}}"
                         alt="Ad"
                         class="w-full rounded-lg mb-4 m-auto"
                     />

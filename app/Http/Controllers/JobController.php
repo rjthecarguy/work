@@ -31,7 +31,7 @@ class JobController extends Controller
     public function store(Request $request):RedirectResponse
     {
     
-
+       
         $validatedData = $request->validate([
             'title'=> 'required|string',
             'description'=> 'nullable|string',
@@ -57,6 +57,11 @@ class JobController extends Controller
 
         $validatedData['user_id'] = 1;
       
+        if($request->hasFile('company_logo')) {
+
+            $path=$request->file('company_logo')->store('logos','public');
+            $validatedData['company_logo'] = $path;
+        }
 
 
         Job::create($validatedData);
