@@ -11,6 +11,31 @@
                 <p class="text-gray-700">{{$job->job_type}}</p>
 
                 </div>
+
+                <div class="flex x-space-3">
+                    <a href="{{route('jobs.edit', $job->id)}}" class="bg-blue-500 text-white px-4 py-2 rounded text-sm">
+                    Edit
+                    </a>
+
+                       <!-- Delete Form -->
+                       <form method="POST" 
+                       action="{{route('jobs.destroy', $job->id)}}?from=dashboard"
+                       onsubmit="return confirm('Are you sure you want to delete this listing?')"
+                       >
+                       @csrf
+                       @method('DELETE')
+
+                           <button
+                               type="submit"
+                               class="ml-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm"
+                           >
+                               Delete
+                           </button>
+                       </form>
+                       <!-- End Delete Form -->
+
+
+                </div>
             </div>
 
         @empty
