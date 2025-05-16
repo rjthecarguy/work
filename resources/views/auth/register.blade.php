@@ -35,7 +35,7 @@
 
         <button type="submit"
             class="w-full bg-blue-500 hover:bg-blue-600 focus:outline-none rounded text-white
-            px-4 py-2">Submit
+            px-4 py-2">Register
         </button>
 
         <p class="mt-4 text-gray-500">
