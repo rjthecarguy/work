@@ -29,12 +29,19 @@
             <x-inputs.text
             id="password_confirmation"
             name="password_confirmation"
+            type="password"
             placeholder="Confirm Password"
         />
 
         <button type="submit"
             class="w-full bg-blue-500 hover:bg-blue-600 focus:outline-none rounded text-white
-            px-4 py-2">Submit</button>
+            px-4 py-2">Submit
+        </button>
+
+        <p class="mt-4 text-gray-500">
+            Already have an account?
+            <a href={{route('login')}} class="text-blue-900 ml-2"> Login.</a>
+        </p>
 
         </form>
 
