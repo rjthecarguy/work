@@ -7,14 +7,18 @@
 
          <x-nav-link url='/'  :active="request()->is('/') ">Home</x-nav-link>
          <x-nav-link url='/jobs'  :active="request()->is('jobs')">All Jobs</x-nav-link>
+
+         @auth
          <x-nav-link url='/jobs/saved'  :active="request()->is('jobs/saved') ">Saved Jobs</x-nav-link>
+         
+         <x-nav-link url='/dashboard'  :active="request()->is('dashbaord') " icon="gauge">Dashboard</x-nav-link>
+         <x-logout-button/>
+         <x-button url='/jobs/create' icon='edit'>Create Job</x-button>
+         @else 
+
          <x-nav-link url='/login'  :active="request()->is('login') ">Login</x-nav-link>
          <x-nav-link url='/register'  :active="request()->is('register') ">Register</x-nav-link>
-         <x-nav-link url='/dashboard'  :active="request()->is('dashbaord') " icon="gauge">Dashboard</x-nav-link>
-      
-         <x-button url='/jobs/create' icon='edit'>Create Job</x-button>
-          
-           
+         @endauth  
       
        </nav>
        <button
@@ -33,11 +37,19 @@
        class="md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
    >
    <x-nav-link url='/jobs' :mobile="true" :active="request()->is('jobs')">All Jobs</x-nav-link>
+
+   @auth
    <x-nav-link url='/jobs/saved' :mobile="true" :active="request()->is('jobs/saved') ">Saved Jobs</x-nav-link>
+  
+   <x-nav-link url='/dashboard' :mobile="true" :active="request()->is('dashbaord') " icon="gauge">Dashboard</x-nav-link>
+   <x-logout-button/>
+   <div class="pt-2"></div>    
+   <x-button url='/jobs/create' icon='edit' :block="true">Create Job</x-button>
+
+   @else
    <x-nav-link url='/login' :mobile="true" :active="request()->is('login') ">Login</x-nav-link>
    <x-nav-link url='/register' :mobile="true" :active="request()->is('register') ">Register</x-nav-link>
-   <x-nav-link url='/dashboard' :mobile="true" :active="request()->is('dashbaord') " icon="gauge">Dashboard</x-nav-link>
-       
-   <x-button url='/jobs/create' icon='edit' :block="true">Create Job</x-button>
+   @endauth
+
    </nav>
 </header>
