@@ -15,5 +15,6 @@
         @endforelse
             </div>
         
-    
+    {{$jobs->links()}}
+
 </x-layout>
