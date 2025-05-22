@@ -87,6 +87,8 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
+        
+
         $this->authorize('update', $job);
 
         return view('jobs.edit')->with('job', $job);
