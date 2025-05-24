@@ -117,7 +117,9 @@
                         
                             Apply for {{$job->title}}
                         </h3>
-                            <form enctype="multipart/form-data">
+                            <form method="POST"
+                                action="{{route('applicant.store', $job->id)}}"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <x-inputs.text
@@ -134,8 +136,8 @@
                                 />
 
                                 <x-inputs.text
-                                    id="contact_email"
-                                    name="contact_email"
+                                    id="email"
+                                    name="email"
                                     label="Contact Email"
                                     :required="true"
                                 />

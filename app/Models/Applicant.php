@@ -12,7 +12,7 @@ class Applicant extends Model
         'job_id',
         'full_name',
         'contact_phone',
-        'contact_emial',
+        'email',
         'message',
         'location',
         'resume_path'
