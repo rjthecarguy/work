@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
+use App\Models\Applicant;
 
 
 class DashboardController extends Controller
@@ -14,7 +15,7 @@ class DashboardController extends Controller
 
     $user = Auth::user();
 
-    $jobs = Job::where('user_id', $user->id)->get();
+    $jobs = Job::where('user_id', $user->id)->with('applicants')->get();
 
     return view('dashboard.index', compact('user', 'jobs'));
 

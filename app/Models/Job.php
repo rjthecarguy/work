@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relation\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Applicant;
 
 
 
@@ -48,7 +49,7 @@ class Job extends Model
 
     public function applicants():HasMany {
 
-        return $this->hasMany(Applicants::class);
+        return $this->hasMany(Applicant::class);
     }
     
 
