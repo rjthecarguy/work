@@ -98,10 +98,7 @@
                 @endif
 
                 @auth
-                <p class="my-5">
-                    Put "Job Application" as the subject of your email
-                    and attach your resume.
-                </p>
+              
 
                 <div x-data="{open:false}">
                 

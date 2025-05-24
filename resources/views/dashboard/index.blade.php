@@ -89,7 +89,12 @@
                 </div>
             </div>
             <div class="mt-4">
+
+                {{--List applicant block --}}
+
                 <h4 class="text-lg font-semibold-mb-2">Applicants</h4>
+                {{--Loop to list applicants --}}
+
                 @forelse($job->applicants as $applicant)
                     <div class="py-2">
                         <p class="text-gray-800">
@@ -110,15 +115,33 @@
                         <p class="text-gray-800">
                             <strong>Message: </strong> {{$applicant->message}}
                         </p>
-                        <p class="text-gray-800 my-4">
+                        <p class="text-gray-800 my-2">
                             <a
                              href="{{asset('storage/' . $applicant->resume_path)}}"
-                             class="text-blue-500 hover:underline"
+                             class="text-blue-500 hover:underline text-sm"
                              download
                              >
                              <i class="fas fa-download"></i> Download Resume  
                             </a>
                         </p>
+
+                        {{-- Delete Applicant --}}
+
+                        <form
+                         method="POST"
+                         action="{{route('applicant.destroy', $applicant->id)}}"
+                         onsubmit="return confirm('Are you sure you want to delete this applicant?')"
+                         >
+                         @csrf
+                         @method("DELETE")
+                        <button
+                         class="text-red-500 text-sm hover:text-red-700"
+                         type="submit"
+                         >
+                         <i class="fas fa-trash"></i> Delete Applicant
+                        </button>
+                        </form>
+
                     </div>
                 @empty
                     <p class="text-gary-700">No applicants for this job</p>
