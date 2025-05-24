@@ -88,7 +88,7 @@
 
                 </div>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 bg-gray-200 py-2 px-2 rounded">
 
                 {{--List applicant block --}}
 
@@ -144,7 +144,7 @@
 
                     </div>
                 @empty
-                    <p class="text-gary-700">No applicants for this job</p>
+                    <p class="text-gary-700 mb-6">No applicants for this job</p>
                 @endforelse
             </div>
         @empty
