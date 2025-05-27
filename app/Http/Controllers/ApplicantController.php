@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Job;
 use App\Models\Applicant;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicantController extends Controller
 {
