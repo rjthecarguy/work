@@ -3,6 +3,7 @@
         <div class="bg-white p-8 rounded-lg shadow-md w-full">
             <h3 class="text-3xl text-center font-bold mb-4">Profile Info</h3>
 
+            {{--If user has Avatar, display it --}}
             @if($user->avatar)
 
                 <div class="mt-2 flex justify-center mb-4">
@@ -12,6 +13,7 @@
 
             @endif
 
+            {{-- Fields to edit record --}}
             <form
              method="POST"
              action="{{route('profile.update')}}"
@@ -54,6 +56,7 @@
     <div class="bg-white p-8 rounded-lg shadow-md w-full">
         <h3 class="text-3xl text-center font-bold mb-4">My Job Listings</h3>
 
+        {{-- List jobs belonging to this user --}}
         @forelse($jobs as $job)
             <div class="flex justify-between items-center border-b-2 border-gray-200 py-2">
                 <div>

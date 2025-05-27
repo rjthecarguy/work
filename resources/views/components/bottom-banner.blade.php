@@ -10,6 +10,12 @@
                 candidate.
             </p>
         </div>
+        
+        {{--Display button only if logged in --}}
+        @auth
         <x-button url="/jobs/create" icon='edit'>Create Job</x-button>
+        @endauth
+
+
     </div>
 </section>

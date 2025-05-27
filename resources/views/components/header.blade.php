@@ -8,6 +8,7 @@
          <x-nav-link url='/'  :active="request()->is('/') ">Home</x-nav-link>
          <x-nav-link url='/jobs'  :active="request()->is('jobs')">All Jobs</x-nav-link>
 
+         {{-- Display if user is logged in --}}
          @auth
          <x-nav-link url='/bookmarks'  :active="request()->is('/bookmarks') ">Bookmarks</x-nav-link>
          
@@ -36,6 +37,7 @@
          <x-nav-link url='/login'  :active="request()->is('login') ">Login</x-nav-link>
          <x-nav-link url='/register'  :active="request()->is('register') ">Register</x-nav-link>
          @endauth  
+         {{-- End of Auth for logged in user menu items --}}
       
        </nav>
        <button
@@ -47,14 +49,17 @@
        </button>
    </div>
    <!-- Mobile Menu -->
+   
+   
    <nav
         @click.away="open=false"
-        x-show="open"
+        x-show="open"  {{-- Logic for mobile menu --}}
        id="mobile-menu"
        class="md:hidden bg-blue-900 text-white mt-5 pb-4 space-y-2"
    >
    <x-nav-link url='/jobs' :mobile="true" :active="request()->is('jobs')">All Jobs</x-nav-link>
 
+   {{-- Only display if user is logged in  --}}
    @auth
    <x-nav-link url='/bookmarks' :mobile="true" :active="request()->is('/bookmarks') ">Bookmarks</x-nav-link>
   
@@ -69,6 +74,7 @@
    <x-nav-link url='/login' :mobile="true" :active="request()->is('login') ">Login</x-nav-link>
    <x-nav-link url='/register' :mobile="true" :active="request()->is('register') ">Register</x-nav-link>
    @endauth
+   {{-- End of Auth block for logged in user menu items --}}
 
    </nav>
 </header>

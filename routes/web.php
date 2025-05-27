@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\GeocodeController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -47,4 +48,8 @@ Route::post('/jobs/{job}/apply', [ApplicantController::class, 'store'])->name('a
 
 Route::delete('/applicants/{applicant}', [ApplicantController::class, 'destroy'])->name('applicant.destroy')
 ->middleware('auth');
+
+Route::get('/geocode', [GeocodeController::class. 'geocode']);
+
+
 
