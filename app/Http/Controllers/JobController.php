@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\View\View;
 
 class JobController extends Controller
 {
@@ -167,7 +168,7 @@ class JobController extends Controller
 
     }
 
-    public function search(Request $request) {
+    public function search(Request $request): View {
 
         $keywords = strtolower($request->input('keywords'));
         $location = strtolower($request->input('location'));
