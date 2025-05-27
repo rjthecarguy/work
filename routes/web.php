@@ -12,7 +12,7 @@ use App\Http\Controllers\ApplicantController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-//Route::resource('jobs',JobController::class);
+Route::get('/jobs/search', [JobController::class,'search'])->name('jobs.search');
 
 Route::resource('jobs',JobController::class)->middleware('auth')->only(['create','update','edit','destroy']);
 Route::resource('jobs',JobController::class)->except(['create','update','edit','destroy']);
