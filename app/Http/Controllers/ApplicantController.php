@@ -7,6 +7,9 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Job;
 use App\Models\Applicant;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\JobApplied;
+use Illuminate\Support\Facades\Mail;
+
 
 class ApplicantController extends Controller
 {
@@ -59,6 +62,9 @@ class ApplicantController extends Controller
        $application->job_id = $job->id;
        $application->user_id = auth()->id();
        $application->save();
+
+       // Send email to job creator
+       Mail::to($job->user->email)->send(new JobApplied);
 
         // Return with "success' 
 
