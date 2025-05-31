@@ -12,13 +12,16 @@ use Illuminate\Queue\SerializesModels;
 class JobApplied extends Mailable
 {
     use Queueable, SerializesModels;
+    public $application;
+    public $job; 
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($application, $job)
     {
-        //
+        $this->application = $application;
+        $this->job = $job;
     }
 
     /**

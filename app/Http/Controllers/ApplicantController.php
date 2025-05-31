@@ -64,7 +64,7 @@ class ApplicantController extends Controller
        $application->save();
 
        // Send email to job creator
-       Mail::to($job->user->email)->send(new JobApplied);
+       Mail::to($job->user->email)->send(new JobApplied($application, $job));
 
         // Return with "success' 
 
